@@ -20,8 +20,11 @@ end
 
 group :development, :test do
   gem "factory_girl_rails", "~> 3.0.0"
+  gem "irbtools"
+  gem "ffaker"
 end
 
 gem 'jquery-rails'
 gem "simple_form", "~> 2.0.1"
 gem "devise", "~> 2.0.4"
+gem "aasm", "~> 3.0.3"

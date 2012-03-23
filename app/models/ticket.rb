@@ -1,0 +1,66 @@
+#encoding: utf-8
+class Ticket < ActiveRecord::Base
+  include AASM
+  aasm_column :state
+
+  belongs_to :user
+  belongs_to :technical, :class_name => "User"
+  has_many :histories
+
+  after_initialize do |t|
+    t.aasm_enter_initial_state if t.state.nil?
+  end
+
+  after_create do |t|
+    # Create history entry
+    self.histories.create description: "Ticket created", auto: true,
+                          user: t.user, state: t.state
+  end
+
+  aasm_initial_state :unread
+  aasm_state :active
+  aasm_state :frozen
+  aasm_state :close
+  aasm_state :unread
+
+  # Notice the :enter and :leave events
+  aasm_event :do_open do
+    transitions :to => :active, :from => [:unread, :close, :frozen, :active]
+  end
+  aasm_event :do_close do
+    transitions :to => :close, :from => [:active]
+  end    
+  aasm_event :do_frozen do
+    transitions :to => :frozen, :from =>[:active]
+  end
+  
+  # User "by" assign ticket to "user"
+  def assign_to(user, by)
+    if self.can_do_event?(:do_close)
+      self.technical = user
+      self.do_open!
+      self.histories.create description: "Ticket assigned to #{user.name}", auto: true,
+                            user: by, state: self.state
+      save
+      return true
+    else
+      return false
+    end
+  end
+
+  def close_ticket(user)
+    if self.can_do_event?(:do_close)
+      self.do_close!
+      self.histories.create description: "Ticket closed", auto: true,
+                            user: user, state: self.state
+      return true
+    else
+      return false
+    end
+  end
+
+  def can_do_event?(event)
+    self.aasm_events_for_current_state.include?(event)
+  end
+
+end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120323200104) do
+ActiveRecord::Schema.define(:version => 20120323202708) do
 
   create_table "gizmos", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,34 @@ ActiveRecord::Schema.define(:version => 20120323200104) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "histories", :force => true do |t|
+    t.text     "description"
+    t.integer  "ticket_id"
+    t.integer  "user_id"
+    t.text     "state"
+    t.boolean  "auto"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "histories", ["ticket_id"], :name => "index_histories_on_ticket_id"
+  add_index "histories", ["user_id"], :name => "index_histories_on_user_id"
+
+  create_table "tickets", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "socket"
+    t.string   "phone"
+    t.string   "state"
+    t.integer  "user_id"
+    t.integer  "technical_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "tickets", ["technical_id"], :name => "index_tickets_on_technical_id"
+  add_index "tickets", ["user_id"], :name => "index_tickets_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",     :null => false

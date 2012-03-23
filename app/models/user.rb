@@ -6,4 +6,14 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role, :as => :admin
+
+  has_many :tickets
+
+  # Create a ticket to user
+  def create_ticket(*params)
+    collection = self.tickets.create(params)
+    collection.first
+  end
+
 end

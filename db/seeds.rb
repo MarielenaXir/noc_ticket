@@ -5,3 +5,24 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+User.delete_all
+Ticket.delete_all
+History.delete_all
+
+vurkas = User.create({email: "vurkas@teiher.gr", password: "123qwe", password_confirmation: "123qwe", role: "admin"}, :as => :admin)
+malu   = User.create({email: "malu@teiher.gr",  password: "123qwe",  password_confirmation: "123qwe", role: "tech"},  :as => :admin)
+melina = User.create({email: "melina@teiher.gr",  password: "123qwe",  password_confirmation: "123qwe", role: "tech"},  :as => :admin)
+
+manos  = User.create email: "manos@teiher.gr",  password: "123qwe",  password_confirmation: "123qwe"
+nikos  = User.create email: "nikos@teiher.gr",  password: "123qwe",  password_confirmation: "123qwe"
+
+
+40.times do |i|
+  u = User.create email: "user#{i}@teiher.gr",  password: "123qwe",  password_confirmation: "123qwe"  
+  rand(10).times do |j|
+    t = u.create_ticket(name: "A ticket #{j}", description: Faker::Lorem.paragraph(1))
+    tech = [malu, melina].shuffle.first
+    t.assign_to(tech,vurkas) unless rand(10) > 7
+  end
+end
