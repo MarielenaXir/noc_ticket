@@ -1,0 +1,27 @@
+<h1>Gizmo</h1>
+
+<p>
+  <b>Name</b><br>
+  <%= @gizmo.name %>
+</p>
+
+<p>
+  <b>Description</b><br>
+  <%= @gizmo.description %>
+</p>
+
+<p>
+  <b>Price</b><br>
+  <%= @gizmo.price %>
+</p>
+
+<p>
+  <b>Enable</b><br>
+  <%= @gizmo.enable %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', gizmos_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_gizmo_path(@gizmo), :class => 'btn' %>
+  <%= link_to 'Delete', gizmo_path(@gizmo), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>
