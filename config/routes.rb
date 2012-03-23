@@ -1,7 +1,8 @@
 NocTicket::Application.routes.draw do
-  devise_for :users
+  get "home/index"
 
+  devise_for :users
   resources :gizmos
 
-  root :to => 'gizmos#index'
+  root :to => 'home#index'
 end
