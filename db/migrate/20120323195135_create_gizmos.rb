@@ -5,7 +5,6 @@ class CreateGizmos < ActiveRecord::Migration
       t.text :description
       t.decimal :price
       t.boolean :enable
-
       t.timestamps
     end
   end

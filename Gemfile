@@ -24,3 +24,4 @@ end
 
 gem 'jquery-rails'
 gem "simple_form", "~> 2.0.1"
+gem "devise", "~> 2.0.4"
