@@ -21,7 +21,7 @@ nikos  = User.create email: "nikos@teiher.gr",  password: "123qwe",  password_co
 40.times do |i|
   u = User.create email: "user#{i}@teiher.gr",  password: "123qwe",  password_confirmation: "123qwe"  
   rand(10).times do |j|
-    t = u.create_ticket(name: "A ticket #{j}", description: Faker::Lorem.paragraph(1))
+    t = u.create_ticket(name: "A ticket #{j} by user user#{i}", description: Faker::Lorem.paragraph(3))
     tech = [malu, melina].shuffle.first
     t.assign_to(tech,vurkas) unless rand(10) > 7
   end

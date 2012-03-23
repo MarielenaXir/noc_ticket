@@ -1,2 +1,25 @@
-<h1>Profile#show</h1>
-<p>Find me in app/views/profile/show.html.erb</p>
+<h1><%= @user.email %></h1>
+<p> I'am an <%= @user.role %></p>
+<h2> My Tickets</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>State</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tickets.each do |t| %>
+      <tr>
+        <td><%= t.id %></td>
+        <td><%= t.name %></td>
+        <td><%=truncate t.description, :length => 25, :omission => '...' %></td>
+        <td><%= t.state %></td>
+        <td><%=l t.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
