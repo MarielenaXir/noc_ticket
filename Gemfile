@@ -22,6 +22,7 @@ group :development, :test do
   gem "factory_girl_rails", "~> 3.0.0"
   gem "irbtools"
   gem "ffaker"
+  gem "rails-erd"
 end
 
 gem 'jquery-rails'
