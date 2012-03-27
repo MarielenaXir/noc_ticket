@@ -5,6 +5,7 @@ NocTicket::Application.routes.draw do
   resources :gizmos
   resources :profile, :only => [:show]
   resources :work,    :only => [:show]
+  resources :tickets, :only => [:new, :create, :show]
 
   root :to => 'home#index'
 end
