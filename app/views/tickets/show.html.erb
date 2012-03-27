@@ -15,8 +15,25 @@
     <td> <%= h.user.email %></td>
     <td> <%=l h.updated_at %></td>
     <td> <%= h.state %></td>
+    <td> <%= h.auto %></td>
   </tr>
 <% end %>
 </table>
+
+<h1> Add  more Info</h1>
+<%= form_for [@ticket, @ticket.histories.build], :method=> :post, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <div class="control-group">
+      <%= f.label :description, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :description, :class => 'text_area' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+    </div>
+  </fieldset>
+<% end %>
 
 <%= link_to 'Back' ,profile_path(current_user)%>
