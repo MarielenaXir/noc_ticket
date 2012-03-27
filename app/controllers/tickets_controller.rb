@@ -11,4 +11,9 @@ class TicketsController < ApplicationController
     @ticket.save
     redirect_to profile_url(current_user)
   end
+
+  def show
+    @ticket = current_user.tickets.find(params[:id])
+  end
+  
 end
