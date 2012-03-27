@@ -28,7 +28,7 @@ class Ticket < ActiveRecord::Base
     transitions :to => :active, :from => [:unread, :close, :frozen, :active]
   end
   aasm_event :do_close do
-    transitions :to => :close, :from => [:active]
+    transitions :to => :close, :from => [:active, :unread]
   end    
   aasm_event :do_frozen do
     transitions :to => :frozen, :from =>[:active]
@@ -36,11 +36,11 @@ class Ticket < ActiveRecord::Base
   
   # User "by" assign ticket to "user"
   def assign_to(user, by)
-    if self.can_do_event?(:do_close)
-      self.technical = user
+    if self.can_do_event?(:do_open)
+      self.technical_id = user_id
       self.do_open!
-      self.histories.create description: "Ticket assigned to #{user.name}", auto: true,
-                            user: by, state: self.state
+      self.histories.create description: "Ticket assigned to #{user.email}", auto: true,
+                            user_id: by.id, state: self.state
       save
       return true
     else
@@ -52,7 +52,8 @@ class Ticket < ActiveRecord::Base
     if self.can_do_event?(:do_close)
       self.do_close!
       self.histories.create description: "Ticket closed", auto: true,
-                            user: user, state: self.state
+                            user_id: user_id, state: self.state
+      self.save
       return true
     else
       return false
