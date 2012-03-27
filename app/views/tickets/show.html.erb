@@ -1,3 +1,22 @@
-<%= @ticket.name %>
-</br>
+<h1> Ticket Info </h1>
+<p>
+  <b>name:</b> <%= @ticket.name %>
+</p>
+<p><b>Description:</b></p>
+<div>
+  <%= @ticket.description %>
+</div>
+
+<h1> History </h1>
+<table class="table table-striped">
+<% @histories.each do |h| %>
+  <tr>
+    <td> <%= h.description %></td>
+    <td> <%= h.user.email %></td>
+    <td> <%=l h.updated_at %></td>
+    <td> <%= h.state %></td>
+  </tr>
+<% end %>
+</table>
+
 <%= link_to 'Back' ,profile_path(current_user)%>

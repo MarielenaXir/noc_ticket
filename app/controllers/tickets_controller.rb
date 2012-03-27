@@ -14,6 +14,8 @@ class TicketsController < ApplicationController
 
   def show
     @ticket = current_user.tickets.find(params[:id])
+    @histories = @ticket.histories.all
+    respond_with(@ticket)
   end
-  
+
 end
