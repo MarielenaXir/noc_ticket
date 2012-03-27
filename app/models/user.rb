@@ -16,4 +16,16 @@ class User < ActiveRecord::Base
     collection.first
   end
 
+  def is_admin?
+    self.role == "admin"
+  end
+
+  def is_tech?
+    self.role == "tech"
+  end
+
+  def is_user?
+    self.role == "user"
+  end
+
 end
