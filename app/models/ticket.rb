@@ -17,6 +17,11 @@ class Ticket < ActiveRecord::Base
                           user: t.user, state: t.state
   end
 
+
+  # Named scoped
+  scope :not_closed, where('state != "close"')
+
+
   aasm_initial_state :unread
   aasm_state :active
   aasm_state :frozen
