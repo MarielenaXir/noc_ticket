@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     if current_user.is_user?
       profile_path(current_user)
     else
-      work_path(current_user)
+      todo_path(current_user)
     end
   end
 

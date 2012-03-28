@@ -4,7 +4,7 @@ NocTicket::Application.routes.draw do
   
   resources :gizmos
   resources :profile, :only => [:show]
-  resources :work,    :only => [:show]
+  resources :todos,   :only => [:show]
   
   resources :tickets, :only => [:new, :create, :show] do
     resources :histories, :only => [:create]
