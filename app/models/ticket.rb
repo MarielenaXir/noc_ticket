@@ -21,6 +21,8 @@ class Ticket < ActiveRecord::Base
   # Named scoped
   scope :not_closed, where('state != "close"')
 
+  # Pagination
+  paginates_per 10
 
   aasm_initial_state :unread
   aasm_state :active
