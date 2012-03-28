@@ -1,0 +1,19 @@
+Wed, 28 Mar 2012 21:17:21 +0300
+doc/README_FOR_APP	Fri, 23 Mar 2012 21:11:08 +0200
+app/controllers/gizmos_controller.rb	Fri, 23 Mar 2012 21:51:35 +0200
+app/controllers/todos_controller.rb	Wed, 28 Mar 2012 19:52:34 +0300
+app/controllers/home_controller.rb	Fri, 23 Mar 2012 22:07:47 +0200
+app/controllers/histories_controller.rb	Wed, 28 Mar 2012 20:05:50 +0300
+app/controllers/tickets_controller.rb	Wed, 28 Mar 2012 21:03:19 +0300
+app/controllers/application_controller.rb	Wed, 28 Mar 2012 19:17:29 +0300
+app/controllers/profile_controller.rb	Wed, 28 Mar 2012 19:03:59 +0300
+app/helpers/histories_helper.rb	Tue, 27 Mar 2012 22:53:43 +0300
+app/helpers/application_helper.rb	Fri, 23 Mar 2012 21:11:08 +0200
+app/helpers/work_helper.rb	Tue, 27 Mar 2012 20:05:52 +0300
+app/helpers/home_helper.rb	Fri, 23 Mar 2012 22:07:48 +0200
+app/helpers/gizmos_helper.rb	Fri, 23 Mar 2012 21:51:35 +0200
+app/helpers/profile_helper.rb	Fri, 23 Mar 2012 23:14:49 +0200
+app/models/user.rb	Wed, 28 Mar 2012 20:10:00 +0300
+app/models/ticket.rb	Wed, 28 Mar 2012 21:17:11 +0300
+app/models/gizmo.rb	Fri, 23 Mar 2012 21:51:35 +0200
+app/models/history.rb	Thu, 22 Mar 2012 21:54:48 +0200

@@ -8,6 +8,7 @@ NocTicket::Application.routes.draw do
   
   resources :tickets, :only => [:new, :create, :show] do
     resources :histories, :only => [:create]
+    post :assign
   end
   
   get "home/index"

@@ -1,4 +1,8 @@
 #encoding: utf-8
+=begin rdoc
+Το μοντέλο Ticket περιέχει ....
+=end
+
 class Ticket < ActiveRecord::Base
   include AASM
   aasm_column :state
@@ -55,6 +59,9 @@ class Ticket < ActiveRecord::Base
     end
   end
 
+  # ==== Options
+  # * <tt>:user</tt> - Ο χρήστης που κλεινεί το picket
+  # * O controller πρέπει να το θέσει σαν current_user
   def close_ticket(user)
     if self.can_do_event?(:do_close)
       self.do_close!

@@ -1,2 +1,10 @@
 <h3><%=truncate @ticket.name, :length => 25, :omission => '...' %></h3>
 <p><%= @ticket.state %></p>
+
+<% if current_user.is_admin? %>
+  <h3> Assign to <h3>
+  <%= form_for @ticket, :url => ticket_assign_path(@ticket), :method=> :post do |f| %>
+    <%= select_tag(:technical_id, options_for_select( User.workers.collect{ |u| ["#{u.email} [#{u.role}]", u.id] }) ) %>
+    <%= f.submit "Assign Ticket", :class => 'btn btn-primary' %>
+  <% end %>
+<% end %>

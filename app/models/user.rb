@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
 
   has_many :tickets
 
+  # Named scopes
+  scope :workers, where("role = 'admin' OR role= 'tech'")
+
   # Create a ticket to user
   def create_ticket(*params)
     collection = self.tickets.create(params)
