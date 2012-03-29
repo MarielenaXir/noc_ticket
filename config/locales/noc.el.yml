@@ -2,5 +2,8 @@ el:
   aasm:
     unread: Νέο
     active: Ανοικτό
-    closse: Κλειστό
+    close:  Κλειστό
     frozen: Παγωμένο
+    do_open: Άνοιξε
+    do_close: Κλεισε
+    do_frozen: Πάγωσε

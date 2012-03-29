@@ -59,21 +59,6 @@ class Ticket < ActiveRecord::Base
     end
   end
 
-  # ==== Options
-  # * <tt>:user</tt> - Ο χρήστης που κλεινεί το picket
-  # * O controller πρέπει να το θέσει σαν current_user
-  def close_ticket(user)
-    if self.can_do_event?(:do_close)
-      self.do_close!
-      self.histories.create description: "Ticket closed", auto: true,
-                            user_id: user_id, state: self.state
-      self.save
-      return true
-    else
-      return false
-    end
-  end
-
   def can_do_event?(event)
     self.aasm_events_for_current_state.include?(event)
   end

@@ -46,6 +46,22 @@ module ApplicationHelper
     end
   end
 
+  # Gives bootstrap class for button (for events)
+  def aasm_type_ev(type)
+    case type
+      when 'do_open'
+        "btn-danger"
+      when 'active'
+        "btn-warning"
+      when 'do_close'
+        "btn-success"
+      when 'do_frozen'
+        "btn-inverse"
+      else
+        "btn-#{type.to_s}"
+    end
+  end
+
   # Gives Icon class
   def aasm_icon(type)
     case type

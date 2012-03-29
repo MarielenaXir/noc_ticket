@@ -7,9 +7,23 @@
 </p>
 
 <% if current_user.is_admin? %>
-  <h3> Assign to <h3>
+  <h3> Αντιστοιχήσε σε <h3>
   <%= form_for @ticket, :url => ticket_assign_path(@ticket), :method=> :post do |f| %>
-    <%= select_tag(:technical_id, options_for_select( User.workers.collect{ |u| ["#{u.email} [#{u.role}]", u.id] }) ) %>
+    <p style="text-align:center;">
+     <%= select_tag(:technical_id, options_for_select( User.workers.collect{ |u| ["#{u.email} [#{u.role}]", u.id] }) ) %>
+   </p>
+   <p style="text-align:center;">
     <%= f.submit "Assign Ticket", :class => 'btn btn-primary' %>
+  </p>
   <% end %>
+
+  <h3> Ενέργειες <h3>
+  <p style="text-align:center;">
+  <% @ticket.aasm_permissible_events_for_current_state.each do |event| %>
+    <%= link_to t("aasm.#{event.to_s}"), 
+                  ticket_change_state_path(@ticket, :event=> event),
+                  :class => "btn #{aasm_type_ev(event.to_s)}" %>
+  <% end %>
+  </p>
+
 <% end %>

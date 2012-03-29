@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class TicketsController < ApplicationController
   respond_to :html
   
@@ -33,4 +35,19 @@ class TicketsController < ApplicationController
     end
   end
 
+  # GET http://localhost:3000/tickets/365/change_state?event=do_open
+  def change_state
+    unless current_user.is_user?
+      @ticket = Ticket.find(params[:ticket_id])
+      if @ticket.aasm_permissible_events_for_current_state.include? params[:event].to_sym
+        # I can use a case when here
+        @ticket.send params[:event].to_sym
+        @ticket.save
+        @ticket.histories.create description: "Αλλαγή καταστασης σε "+I18n.t("aasm.#{@ticket.state}"), auto: false,
+                              user: current_user, state: @ticket.state
+        
+      end
+    end
+    redirect_to ticket_url(params[:ticket_id])
+  end
 end

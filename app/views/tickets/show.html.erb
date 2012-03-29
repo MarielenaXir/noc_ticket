@@ -13,13 +13,22 @@
 <div class="well">
 <h3> History </h3>
 <table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Ιστορικό</th>
+    <th>Χρήστης</th>
+    <th>Ημερομηνία</th>
+    <th>Κατάσταση</th>
+    <th>Αυτόματο</th>
+  </tr>
+</thead>
 <% @histories.each do |h| %>
   <tr>
     <td> <%= h.description %></td>
     <td> <%= h.user.email %></td>
     <td> <%=l h.updated_at %></td>
     <td> <%= h.state %></td>
-    <td> <%= h.auto %></td>
+    <td> <%= h.auto ? "NAI" : "OXI" %></td>
   </tr>
 <% end %>
 </table>
@@ -37,5 +46,6 @@
   </fieldset>
 <% end %>
 
+
 <hr/>
-<%= link_to 'Back',  get_home_path :class=> 'btn btn-primary' %>
+<%= link_to 'Επιστροφή',  get_home_path, :class=> 'btn btn-primary' %>
