@@ -27,12 +27,19 @@ class TicketsController < ApplicationController
   end
 
   def assign
+    
     if current_user.is_admin?
       @tech = User.find(params[:technical_id])
       @ticket = Ticket.find(params[:ticket_id])
       @ticket.assign_to(@tech,current_user)
-      redirect_to ticket_url(params[:ticket_id])
     end
+
+    if current_user.is_tech?
+      @ticket = Ticket.find(params[:ticket_id])
+      @ticket.assign_to(current_user,current_user)
+    end
+
+    redirect_to ticket_url(params[:ticket_id])
   end
 
   # GET http://localhost:3000/tickets/365/change_state?event=do_open

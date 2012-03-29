@@ -19,6 +19,15 @@
 <% end %>
 
 
+<% if current_user.is_tech? %>
+  <%= form_for @ticket, :url => ticket_assign_path(@ticket), :method=> :post do |f| %>
+    <p style="text-align:center;">
+      <%= f.hidden_field(:technical_id, :value=> current_user.id) %>
+      <%= f.submit "Assign Ticket to Me", :class => 'btn btn-primary' %>
+    </p>
+  <% end %>
+<% end %>
+
 <% unless current_user.is_user? %>
   <h3> Ενέργειες <h3>
   <p style="text-align:center;">
