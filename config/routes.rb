@@ -1,5 +1,8 @@
 NocTicket::Application.routes.draw do
 
+  get "page/help"
+  get "page/faq"
+
   devise_for :users
   
   resources :gizmos
