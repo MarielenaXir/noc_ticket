@@ -32,9 +32,17 @@
   <h3> Ενέργειες <h3>
   <p style="text-align:center;">
   <% @ticket.aasm_permissible_events_for_current_state.each do |event| %>
-    <%= link_to t("aasm.#{event.to_s}"), 
-                  ticket_change_state_path(@ticket, :event=> event),
-                  :class => "btn #{aasm_type_ev(event.to_s)}" %>
+    <% if (event != :do_open) %>
+      <%= link_to t("aasm.#{event.to_s}"), 
+                    ticket_change_state_path(@ticket, :event=> event),
+                    :class => "btn #{aasm_type_ev(event.to_s)}" %>
+    <% else %>
+      <% if (@ticket.state != 'active') && (!@ticket.technical_id.nil?)%>
+          <%= link_to t("aasm.#{event.to_s}"), 
+                        ticket_change_state_path(@ticket, :event=> event),
+                        :class => "btn #{aasm_type_ev(event.to_s)}" %>
+      <% end %>  
+    <% end %>
   <% end %>
   </p>
 
