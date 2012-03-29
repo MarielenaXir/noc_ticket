@@ -16,7 +16,10 @@
     <%= f.submit "Assign Ticket", :class => 'btn btn-primary' %>
   </p>
   <% end %>
+<% end %>
 
+
+<% unless current_user.is_user? %>
   <h3> Ενέργειες <h3>
   <p style="text-align:center;">
   <% @ticket.aasm_permissible_events_for_current_state.each do |event| %>

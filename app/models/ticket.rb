@@ -23,7 +23,8 @@ class Ticket < ActiveRecord::Base
 
 
   # Named scoped
-  scope :not_closed, where('state != "close"')
+  scope :not_closed,  where('state != "close"')
+  scope :assigned_to,  lambda { |user| where('technical_id = ?', user.id) }
 
   # Pagination
   paginates_per 10
@@ -48,7 +49,7 @@ class Ticket < ActiveRecord::Base
   # User "by" assign ticket to "user"
   def assign_to(user, by)
     if self.can_do_event?(:do_open)
-      self.technical_id = user_id
+      self.technical_id = user.id
       self.do_open!
       self.histories.create description: "Ticket assigned to #{user.email}", auto: true,
                             user_id: by.id, state: self.state
