@@ -10,7 +10,8 @@
   <%= @ticket.description %>
 </div>
 
-<h1> History </h1>
+<div class="well">
+<h3> History </h3>
 <table class="table table-striped">
 <% @histories.each do |h| %>
   <tr>
@@ -22,19 +23,16 @@
   </tr>
 <% end %>
 </table>
+</div>
 
-<h1> Add  more Info</h1>
-<%= form_for [@ticket, @ticket.histories.build], :method=> :post, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for [@ticket, @ticket.histories.build], :method=> :post, :html => { :class => 'well' } do |f| %>
+  <h3> Add  more Info</h3>
   <fieldset>
     <div class="control-group">
-      <%= f.label :description, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_area :description, :class => 'text_area' %>
+        <%= f.text_area :description, :class => 'text_area span8', :rows=>2 %>
       </div>
-    </div>
-
-    <div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= f.submit "Add to History", :class => 'btn btn-primary' %>
     </div>
   </fieldset>
 <% end %>
