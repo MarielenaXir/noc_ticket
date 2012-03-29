@@ -29,19 +29,7 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
           <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">NocTicket</a>
-          <div class="container nav-collapse">
-            <ul class="nav">
-                <li><%= link_to "Link1", "/path1"  %></li>
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+          <a class="brand" href="<%= get_home_path %>">NocTicket</a>
         </div>
       </div>
     </div>
@@ -50,8 +38,7 @@
       <div class="content">
         <div class="row">
           <div class="span9">
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
+            <%= render :partial => "application/flash_messages", :locals => {:flash => flash} %>
             <%= yield %>
           </div>
           <div class="span1">&nbsp;</div>
@@ -66,7 +53,7 @@
       </div><!--/content-->
 
       <footer>
-        <p>&copy; Company 2012</p>
+        <p>&copy; Marilena Xirogianni, TEI Of Crete 2012</p>
       </footer>
 
     </div> <!-- /container -->
