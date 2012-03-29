@@ -29,4 +29,38 @@ module ApplicationHelper
     end
   end
 
+
+  # Gives bootstrap class for button
+  def aasm_type(type)
+    case type
+      when 'unread'
+        "btn-danger"
+      when 'active'
+        "btn-warning"
+      when 'close'
+        "btn-success"
+      when 'frozen'
+        "btn-inverse"
+      else
+        "btn-#{type.to_s}"
+    end
+  end
+
+  # Gives Icon class
+  def aasm_icon(type)
+    case type
+      when 'unread'
+        "icon-gift"
+      when 'active'
+        "icon-leaf"
+      when 'close'
+        "icon-fire"
+      when 'frozen'
+        "icon-road"
+      else
+        "btn-#{type.to_s}"
+    end
+  end  
+
+
 end

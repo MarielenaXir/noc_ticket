@@ -1,5 +1,10 @@
 <h3><%=truncate @ticket.name, :length => 25, :omission => '...' %></h3>
-<p><%= @ticket.state %></p>
+<p style="text-align:center;">
+<button class="btn btn-large <%=  aasm_type(@ticket.state) %> disabled" disabled="disabled">
+  <i class="icon-white <%= aasm_icon(@ticket.state) %>"></i>
+  <%=t "aasm.#{@ticket.state}" %>
+</button>
+</p>
 
 <% if current_user.is_admin? %>
   <h3> Assign to <h3>

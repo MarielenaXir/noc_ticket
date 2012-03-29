@@ -1,0 +1,6 @@
+el:
+  aasm:
+    unread: Νέο
+    active: Ανοικτό
+    closse: Κλειστό
+    frozen: Παγωμένο
