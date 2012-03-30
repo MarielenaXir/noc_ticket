@@ -1,57 +1,57 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
-
+encoding: utf-8
 el:
   errors:
     messages:
-      expired: "has expired, please request a new one"
-      not_found: "not found"
-      already_confirmed: "was already confirmed, please try signing in"
-      not_locked: "was not locked"
+      expired: "εχει ληξει, προσπέθησε ξανα"
+      not_found: "Δεν υπάρχει"
+      already_confirmed: "Έχει επιβαιωθει,δοκιμαστε να κανετε Εισοδο στο συστημα"
+      not_locked: "Δεν ειναι μπλοκαρισμενο"
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: "Ειναι λάθος %{resource} γιανα αποθηκεθτει:"
+        other: "%{count} λάθη μπλοκάροντε απο %{resource} για να μπορέσουν να απο8ηκευτουν:"
 
   devise:
     failure:
-      already_authenticated: 'You are already signed in.'
-      unauthenticated: 'You need to sign in or sign up before continuing.'
-      unconfirmed: 'You have to confirm your account before continuing.'
-      locked: 'Your account is locked.'
-      invalid: 'Invalid email or password.'
-      invalid_token: 'Invalid authentication token.'
-      timeout: 'Your session expired, please sign in again to continue.'
+      already_authenticated: 'Έστε συνδεμένος'
+      unauthenticated: 'Πρέπει να συνδεθυτε για να συνεχίσετε'
+      unconfirmed: 'Πρεπει να επιβεβαιώσε το λογαριασμο σας για να μπορέσε να συνεχίσετε.'
+      locked: 'Ολογαριασμός σας είναι μπλοκαρισμένος'
+      invalid: 'Άκυρο το email ή ο κωδικός σας'
+      invalid_token: 'Δεν επιβεβαιώνεστε ως χρήστης'
+      timeout: 'Η συνεδρια σας στο σύστημα εχει ληξει, παρακαλώ κανετε είσοδο ξανά'
       inactive: 'Your account was not activated yet.'
     sessions:
-      signed_in: 'Signed in successfully.'
-      signed_out: 'Signed out successfully.'
+      signed_in: 'Η είσοδος σας έγινε επιτυχώς'
+      signed_out: 'Η έξοδο σας έγινε επιτυχώς'
     passwords:
       send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
       updated: 'Your password was changed successfully. You are now signed in.'
       updated_not_active: 'Your password was changed successfully.'
       send_paranoid_instructions: "If your e-mail exists on our database, you will receive a password recovery link on your e-mail"
     confirmations:
-      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
-      send_paranoid_instructions: 'If your e-mail exists on our database, you will receive an email with instructions about how to confirm your account in a few minutes.'
+      send_instructions: 'Θα λετε ένα email για το πως θα επιβεβαιώσετε το λογαριασμό σας σε λίγα λεπτα ευχαριστούμε.'
+      send_paranoid_instructions: 'Εάν το e-mail σας είναι υπαρκτο θα λάβετε οδηγίες πως θα κάνετε επιβαιώση σε λιγα λεπτά'
       confirmed: 'Your account was successfully confirmed. You are now signed in.'
     registrations:
-      signed_up: 'Welcome! You have signed up successfully.'
-      signed_up_but_unconfirmed: 'A message with a confirmation link has been sent to your email address. Please open the link to activate your account.'
-      signed_up_but_inactive: 'You have signed up successfully. However, we could not sign you in because your account is not yet activated.'
+      signed_up: 'Καλώς ήρθατε, η εγγραφή σας έγινε επιτυχώς.'
+      signed_up_but_unconfirmed: 'Ένα μήνημα με το link επιβεβαίωσης σας έχει σταλει στην ηλεκτρονική σας διευθηνση.Παρακαλώ ανοιξτε το link να ενεργοποιήσετε το λογαριασμό σας.'
+      signed_up_but_inactive: 'Η εγγραφή σας έγινε επιτυχώς ωστόσο δεν μπορούμε να σας επιτρέψουμε την είσοδο σας γιατι ο λογαριασμός δεν εει επιβεβαιώθει ακόμα.'
       signed_up_but_locked: 'You have signed up successfully. However, we could not sign you in because your account is locked.'
-      updated: 'You updated your account successfully.'
-      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
-      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+      updated: 'Ο λογαριασμός επιβεβαιώθηκε επιτυχώς'
+      update_needs_confirmation: "Ο λογαριασμός επιβεβαιώθηκε επιτυχώς, αλλα θα πρεπει να επαληθεύσετε την ηλεκτρονική σα διευθηνση. παρακαλώ επιβεβαιώσετε απο το link που έχει στααλει στη  νέα σας διευθυνση."
+      destroyed: 'Γεία σας!!Ολογαριασμός σας απενεργοποιήθηκε επιτυχώς ελπίζουμε να σας ξαναδούμε κάποια φορα'
     unlocks:
-      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
-      unlocked: 'Your account has been unlocked successfully. Please sign in to continue.'
-      send_paranoid_instructions: 'If your account exists, you will receive an email with instructions about how to unlock it in a few minutes.'
+      send_instructions: 'Θα λαβέτε ένα email με οδήγίες, πως θα ξεκλιδώσετε το λογαριασμό σας.'
+      unlocked: 'Ολογαριασμό σας απενεργοποιήθηκε και πάλι,παρακάλω κανετε είσοδο να συνεχίσετε'
+      send_paranoid_instructions: 'Αν ο λογαριασμός σας υπάρχει,Θα λαβέτε ένα email με οδήγίες, πως θα ξεκλιδώσετε το λογαριασμό σας σε λίγα λεπτά '
     omniauth_callbacks:
-      success: 'Successfully authorized from %{kind} account.'
-      failure: 'Could not authorize you from %{kind} because "%{reason}".'
+      success: 'Επιβεβαιώθηκε επιτυχώς από %{kind} .'
+      failure: 'Δεν είστε εξουσιδοτημένος %{kind} γιατί "%{reason}".'
     mailer:
       confirmation_instructions:
-        subject: 'Confirmation instructions'
+        subject: 'Οι οδηγίες επιβεβαιώθηκαν'
       reset_password_instructions:
-        subject: 'Reset password instructions'
+        subject: 'Επαναφορά κωδικού'
       unlock_instructions:
-        subject: 'Unlock Instructions'
+        subject: 'Ελευθερο'
