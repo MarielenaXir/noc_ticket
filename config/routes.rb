@@ -4,8 +4,6 @@ NocTicket::Application.routes.draw do
   get "page/faq"
 
   devise_for :users
-  
-  resources :gizmos
   resources :profile, :only => [:show]
   resources :todos,   :only => [:show]
   
