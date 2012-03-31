@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20120323202708) do
 
-  create_table "gizmos", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.decimal  "price"
-    t.boolean  "enable"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
   create_table "histories", :force => true do |t|
     t.text     "description"
     t.integer  "ticket_id"
