@@ -1,7 +1,7 @@
 NocTicket::Application.routes.draw do
 
   get "page/help"
-  get "page/faq"
+  get "page/more"
 
   devise_for :users
   resources :profile, :only => [:show]

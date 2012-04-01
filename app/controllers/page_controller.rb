@@ -2,6 +2,7 @@ class PageController < ApplicationController
   def help
   end
 
-  def faq
+  def more
+    
   end
 end

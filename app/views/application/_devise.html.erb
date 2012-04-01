@@ -1,8 +1,8 @@
 <div class="well sidebar-nav">
-  <h3>User</h3>
+  <h3>Χρήστης</h3>
   <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>.
-    <br/> Not you?
+    Εισοδος ως <%= current_user.email %>.
+    
     <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
     <p>
       <%= link_to "My Tickets", profile_path(current_user), :class => 'btn' %>
